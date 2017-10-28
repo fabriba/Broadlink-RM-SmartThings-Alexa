@@ -13,13 +13,15 @@
  *  for the specific language governing permissions and limitations under the License.
  *
  *  1/7/17 - updated with better switch displays and use of device ID from user itsamti
+ * // 09/01/2016 - itsamti - Added new switch definition below 
+  * 2017-09-01 - FA: updated to replace any %20 with _ in url... this makes it neater when working with Tasker, or any form of automation really
  */
  
  
-// 09/01/2016 - itsamti - Added new switch definition below 
+
 metadata {
 	
-    definition (name: "RM Bridge Switch Cloud", namespace: "beckyricha", author: "BeckyR") {
+    definition (name: "RM Bridge Switch Cloud", namespace: "beckyricha - Fa", author: "BeckyR") {
 		capability "Switch"
 
 		command "onPhysical"
@@ -69,9 +71,10 @@ def offPhysical() {
  
 private put(toggle) {
     def toReplace = device.deviceNetworkId
-	def replaced = toReplace.replaceAll(' ', '%20')
+	def replaced = toReplace.replaceAll(' ', '_')
 def params = [
-    uri: "http://xxx.xxx.x.x:xxxx/code/$replaced%20$toggle"
+    uri: "http://*******:7474/code/${replaced}_${toggle}"
+    //eg:  http://*******:7474/code/Light_on
 ]
     httpGet(params) 
 }
