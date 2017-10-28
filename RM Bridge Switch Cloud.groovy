@@ -15,7 +15,10 @@
  *  1/7/17 - updated with better switch displays and use of device ID from user itsamti
  * // 09/01/2016 - itsamti - Added new switch definition below 
   * 2017-09-01 - FA: updated to replace any %20 with _ in url... this makes it neater when working with Tasker, or any form of automation really
+  * 2017-10-28 - FA: added ${} notation which seems to work more reliably - also added project on github
  */
+ 
+ 
  
  
 
